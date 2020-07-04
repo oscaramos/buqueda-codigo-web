@@ -11,14 +11,13 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import { ReactComponent as SearchIcon } from './icons/search.svg'
 
-import searchCode from './api/api'
-
 import { formatCode } from './utils/prettierFormat'
 import { highlightCode } from './utils/highlightCode'
 
-import 'highlight.js/styles/github.css'
+import searchCode from './api/api'
+
+import 'highlight.js/styles/github-gist.css'
 import './App.css'
-import * as PropTypes from 'prop-types'
 
 const useStyles = makeStyles((theme) => ({
 	'@global': {
@@ -26,10 +25,6 @@ const useStyles = makeStyles((theme) => ({
 			backgroundColor: '#eeeeef',
 			fontFamily: 'Menlo',
 		}
-	},
-	cardContainer: {
-		width: '100%',
-		maxWidth: '600px',
 	},
 	searchBar: {
 		borderRadius: '6px',
@@ -74,7 +69,15 @@ function SearchBar(props) {
 		</React.Fragment>)
 }
 
-function CodeItem({ classes, code }) {
+const useStylesCodeItem = makeStyles(() => ({
+	cardContainer: {
+		width: '100%',
+		maxWidth: '600px',
+	},
+}))
+
+function CodeItem({ code }) {
+	const classes = useStylesCodeItem()
 	const formattedText = formatCode(code)
 	const highlightedCode = highlightCode(formattedText)
 
@@ -112,7 +115,7 @@ function App() {
 			<Container maxWidth="sm">
 				<Grid container spacing={3}>
 					{codes.map((code, index) => (
-						<CodeItem key={index} classes={classes} code={code} />
+						<CodeItem key={index} code={code} />
 					))}
 				</Grid>
 			</Container>

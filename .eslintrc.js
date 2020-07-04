@@ -39,6 +39,9 @@ module.exports = {
 		],
 		'react/jsx-key': [
 			"off"
+		],
+		'react/prop-types': [
+			"off"
 		]
 	}
 }
