@@ -11,11 +11,11 @@ import { highlightCode } from '../../utils/highlightCode'
 const useStylesCodeItem = makeStyles(() => ({
 	cardContainer: {
 		width: '100%',
-		maxWidth: '600px',
+		fontSize: '1.10em'
 	},
 }))
 
-export default function CodeItem({ code }) {
+export default function CodeCard({ code }) {
 	const classes = useStylesCodeItem()
 	const formattedText = formatCode(code)
 	const highlightedCode = highlightCode(formattedText)

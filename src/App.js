@@ -6,7 +6,7 @@ import Container from '@material-ui/core/Container'
 import { makeStyles } from '@material-ui/core/styles'
 
 import SearchBar from './components/SearchBar/SearchBar'
-import CodeItem from './components/CodeItem/CodeItem'
+import CodeCard from './components/CodeCard/CodeCard'
 import searchCode from './api/api'
 
 import 'highlight.js/styles/github-gist.css'
@@ -51,7 +51,6 @@ function App() {
 	const handleKeyPress = (e) => {
 		if (e.key === 'Enter') {
 			// Busqueda de codigo
-			console.log('submit')
 			searchCode(query, 10)
 				.then(codes => {
 					setCodes(codes.codes)
@@ -73,7 +72,7 @@ function App() {
 			<Container maxWidth="md">
 				<Grid container spacing={3}>
 					{codes.map((code, index) => (
-						<CodeItem key={index} code={code} />
+						<CodeCard key={index} code={code} />
 					))}
 				</Grid>
 			</Container>
