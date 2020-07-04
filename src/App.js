@@ -42,7 +42,7 @@ function App() {
 	const [codes, setCodes] = useState([])
 
 	useEffect(() => {
-		searchCode('string to int', 10)
+		searchCode('', 10)
 			.then(codes => {
 				setCodes(codes.codes)
 			})
@@ -50,6 +50,7 @@ function App() {
 
 	const handleKeyPress = (e) => {
 		if (e.key === 'Enter') {
+			// Busqueda de codigo
 			console.log('submit')
 			searchCode(query, 10)
 				.then(codes => {
@@ -69,7 +70,7 @@ function App() {
 				/>
 			</AppBar>
 			<div className={classes.appbarMargin} />
-			<Container maxWidth="sm">
+			<Container maxWidth="md">
 				<Grid container spacing={3}>
 					{codes.map((code, index) => (
 						<CodeItem key={index} code={code} />
