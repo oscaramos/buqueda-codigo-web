@@ -13,6 +13,11 @@ const useStylesCodeItem = makeStyles(() => ({
 		width: '100%',
 		fontSize: '1.10em'
 	},
+	card: {
+		boxShadow: 'none',
+		borderRadius: '6px',
+		border: '1px solid #D7DAE0'
+	}
 }))
 
 export default function CodeCard({ code }) {
@@ -21,7 +26,7 @@ export default function CodeCard({ code }) {
 	const highlightedCode = highlightCode(formattedText)
 
 	return <Grid item className={classes.cardContainer}>
-		<Card>
+		<Card className={classes.card}>
 			<CardContent>
 				<pre>
 					<code>

@@ -23,7 +23,7 @@ const useStyles = makeStyles(() => ({
 		borderRadius: '6px',
 		border: '1px solid #D7DAE0',
 		backgroundColor: '#fff',
-		width: '35em',
+		width: '57em',
 		margin: 'auto',
 	},
 	appbar: {
