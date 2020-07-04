@@ -18,6 +18,7 @@ import { highlightCode } from './utils/highlightCode'
 
 import 'highlight.js/styles/github.css'
 import './App.css'
+import * as PropTypes from 'prop-types'
 
 const useStyles = makeStyles((theme) => ({
 	'@global': {
@@ -73,6 +74,23 @@ function SearchBar(props) {
 		</React.Fragment>)
 }
 
+function CodeItem({ classes, code }) {
+	const formattedText = formatCode(code)
+	const highlightedCode = highlightCode(formattedText)
+
+	return <Grid item className={classes.cardContainer}>
+		<Card>
+			<CardContent>
+				<pre>
+					<code>
+						<div dangerouslySetInnerHTML={{ __html: highlightedCode.value }} />
+					</code>
+				</pre>
+			</CardContent>
+		</Card>
+	</Grid>
+}
+
 function App() {
 	const classes = useStyles()
 	const [codes, setCodes] = useState([])
@@ -84,9 +102,6 @@ function App() {
 			})
 	}, [])
 
-	const javaText = 'public class AddTwoIntegers { public static void main(String[] args) { int first = 10; int second = 20; System.out.println("Enter two numbers: " + first + " " + second); int sum = first + second; System.out.println("The sum is: " + sum); } }'
-	const formattedText = formatCode(javaText)
-	const highlightedCode = highlightCode(formattedText)
 
 	return (
 		<div>
@@ -97,17 +112,7 @@ function App() {
 			<Container maxWidth="sm">
 				<Grid container spacing={3}>
 					{codes.map((code, index) => (
-						<Grid item key={index} className={classes.cardContainer}>
-							<Card>
-								<CardContent>
-									<pre>
-										<code>
-											<div dangerouslySetInnerHTML={{__html: highlightedCode.value}} />
-										</code>
-									</pre>
-								</CardContent>
-							</Card>
-						</Grid>
+						<CodeItem key={index} classes={classes} code={code} />
 					))}
 				</Grid>
 			</Container>
