@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "highlight.js": "^10.1.1",
     "query-string": "^6.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -35,6 +36,8 @@
     ]
   },
   "devDependencies": {
-    "@types/jest": "^26.0.3"
+    "@types/jest": "^26.0.3",
+    "prettier": "^2.0.5",
+    "prettier-plugin-java": "0.7.0"
   }
 }
