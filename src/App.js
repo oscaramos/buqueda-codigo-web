@@ -46,9 +46,6 @@ const useStyles = makeStyles((theme) => ({
 const useStylesSearch = makeStyles(() => ({
 	root: {
 		fontFamily: 'Menlo',
-	},
-	icon: {
-		width: '1.5em'
 	}
 }))
 
@@ -61,7 +58,7 @@ function SearchBar(props) {
 				InputProps={{classes,
 					endAdornment:
 						<InputAdornment position="end">
-							<SearchIcon className={classes.icon} />
+							<SearchIcon style={{width: '1.5em'}} />
 						</InputAdornment> }}
 				placeholder='Search for java code'
 				{...props}
@@ -96,6 +93,7 @@ function CodeItem({ code }) {
 
 function App() {
 	const classes = useStyles()
+	const [query, setQuery] = useState('')
 	const [codes, setCodes] = useState([])
 
 	useEffect(() => {
@@ -105,11 +103,25 @@ function App() {
 			})
 	}, [])
 
+	const handleKeyPress = (e) => {
+		if (e.key === 'Enter') {
+			console.log('submit')
+			searchCode(query, 10)
+				.then(codes => {
+					setCodes(codes.codes)
+				})
+		}
+	}
 
 	return (
 		<div>
 			<AppBar position='fixed' className={classes.appbar}>
-				<SearchBar className={classes.searchBar}/>
+				<SearchBar
+					className={classes.searchBar}
+					value={query}
+					onChange={(e) => setQuery(e.target.value)}
+					onKeyPress={handleKeyPress}
+				/>
 			</AppBar>
 			<div className={classes.appbarMargin} />
 			<Container maxWidth="sm">
