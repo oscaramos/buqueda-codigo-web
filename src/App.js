@@ -40,6 +40,7 @@ function App() {
 	const classes = useStyles()
 	const [query, setQuery] = useState('')
 	const [codes, setCodes] = useState([])
+	const [loading, setLoading] = useState(false)
 
 	useEffect(() => {
 		searchCode('', 10)
@@ -51,9 +52,11 @@ function App() {
 	const handleKeyPress = (e) => {
 		if (e.key === 'Enter') {
 			// Busqueda de codigo
+			setLoading(true)
 			searchCode(query, 10)
 				.then(codes => {
 					setCodes(codes.codes)
+					setLoading(false)
 				})
 		}
 	}
@@ -72,7 +75,7 @@ function App() {
 			<Container maxWidth="md">
 				<Grid container spacing={3}>
 					{codes.map((code, index) => (
-						<CodeCard key={index} code={code} />
+						<CodeCard key={index} code={code} loading={loading} />
 					))}
 				</Grid>
 			</Container>

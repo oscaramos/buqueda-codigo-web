@@ -8,6 +8,8 @@ import { makeStyles } from '@material-ui/core/styles'
 import { formatCode } from '../../utils/prettierFormat'
 import { highlightCode } from '../../utils/highlightCode'
 
+import Skeleton from '@material-ui/lab/Skeleton/Skeleton'
+
 const useStylesCodeItem = makeStyles(() => ({
 	cardContainer: {
 		width: '100%',
@@ -20,7 +22,13 @@ const useStylesCodeItem = makeStyles(() => ({
 	}
 }))
 
-export default function CodeCard({ code }) {
+const LoadingCard = ( {size} ) => {
+	return [...Array(size).keys()].map((key) =>
+		<Skeleton key={key} variant="text" animation="wave"/>
+	)
+}
+
+export default function CodeCard({ code, loading }) {
 	const classes = useStylesCodeItem()
 	const formattedText = formatCode(code)
 	const highlightedCode = highlightCode(formattedText)
@@ -30,7 +38,10 @@ export default function CodeCard({ code }) {
 			<CardContent>
 				<pre>
 					<code>
-						<div dangerouslySetInnerHTML={{ __html: highlightedCode.value }} />
+						{!loading?
+							<div dangerouslySetInnerHTML={{ __html: highlightedCode.value }} />
+							: <LoadingCard size={6}/>
+						}
 					</code>
 				</pre>
 			</CardContent>
