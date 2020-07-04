@@ -1,25 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
-import Card from '@material-ui/core/Card'
 import AppBar from '@material-ui/core/AppBar'
-import TextField from '@material-ui/core/TextField'
-import CardContent from '@material-ui/core/CardContent'
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
-import InputAdornment from '@material-ui/core/InputAdornment'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { ReactComponent as SearchIcon } from './icons/search.svg'
-
-import { formatCode } from './utils/prettierFormat'
-import { highlightCode } from './utils/highlightCode'
-
+import SearchBar from './components/SearchBar/SearchBar'
+import CodeItem from './components/CodeItem/CodeItem'
 import searchCode from './api/api'
 
 import 'highlight.js/styles/github-gist.css'
 import './App.css'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
 	'@global': {
 		html: {
 			backgroundColor: '#eeeeef',
@@ -42,54 +35,6 @@ const useStyles = makeStyles((theme) => ({
 		height: '8em',
 	}
 }))
-
-const useStylesSearch = makeStyles(() => ({
-	root: {
-		fontFamily: 'Menlo',
-	}
-}))
-
-function SearchBar(props) {
-	const classes = useStylesSearch()
-	return (
-		<React.Fragment>
-			<TextField
-				variant='outlined'
-				InputProps={{classes,
-					endAdornment:
-						<InputAdornment position="end">
-							<SearchIcon style={{width: '1.5em'}} />
-						</InputAdornment> }}
-				placeholder='Search for java code'
-				{...props}
-			/>
-		</React.Fragment>)
-}
-
-const useStylesCodeItem = makeStyles(() => ({
-	cardContainer: {
-		width: '100%',
-		maxWidth: '600px',
-	},
-}))
-
-function CodeItem({ code }) {
-	const classes = useStylesCodeItem()
-	const formattedText = formatCode(code)
-	const highlightedCode = highlightCode(formattedText)
-
-	return <Grid item className={classes.cardContainer}>
-		<Card>
-			<CardContent>
-				<pre>
-					<code>
-						<div dangerouslySetInnerHTML={{ __html: highlightedCode.value }} />
-					</code>
-				</pre>
-			</CardContent>
-		</Card>
-	</Grid>
-}
 
 function App() {
 	const classes = useStyles()
