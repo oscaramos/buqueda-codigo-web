@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react'
+import searchCode from './api/api'
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [codes, setCodes] = useState([])
+
+	useEffect(() => {
+		searchCode('string to int', 10)
+			.then(codes => {
+				setCodes(codes.codes)
+			})
+	}, [])
+
+	return (
+		<div>
+			{codes.map(code => (
+				<Card>
+					<CardContent>
+						{code}
+					</CardContent>
+				</Card>
+			))}
+
+		</div>
+	)
 }
 
-export default App;
+export default App
