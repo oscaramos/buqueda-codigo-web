@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "/busqueda-codigo-web/static/css/main.74b1dc69.chunk.css",
-    "main.js": "/busqueda-codigo-web/static/js/main.2b43fa18.chunk.js",
-    "main.js.map": "/busqueda-codigo-web/static/js/main.2b43fa18.chunk.js.map",
+    "main.js": "/busqueda-codigo-web/static/js/main.6409568f.chunk.js",
+    "main.js.map": "/busqueda-codigo-web/static/js/main.6409568f.chunk.js.map",
     "runtime-main.js": "/busqueda-codigo-web/static/js/runtime-main.4db7e6e0.js",
     "runtime-main.js.map": "/busqueda-codigo-web/static/js/runtime-main.4db7e6e0.js.map",
     "static/css/2.ad8e7604.chunk.css": "/busqueda-codigo-web/static/css/2.ad8e7604.chunk.css",
-    "static/js/2.b3610803.chunk.js": "/busqueda-codigo-web/static/js/2.b3610803.chunk.js",
-    "static/js/2.b3610803.chunk.js.map": "/busqueda-codigo-web/static/js/2.b3610803.chunk.js.map",
+    "static/js/2.b025cea4.chunk.js": "/busqueda-codigo-web/static/js/2.b025cea4.chunk.js",
+    "static/js/2.b025cea4.chunk.js.map": "/busqueda-codigo-web/static/js/2.b025cea4.chunk.js.map",
     "index.html": "/busqueda-codigo-web/index.html",
-    "precache-manifest.8ed3e3bbe5d1a17ae179fcfe643580c5.js": "/busqueda-codigo-web/precache-manifest.8ed3e3bbe5d1a17ae179fcfe643580c5.js",
+    "precache-manifest.87df46dbab99002d3fbd344e9f260c07.js": "/busqueda-codigo-web/precache-manifest.87df46dbab99002d3fbd344e9f260c07.js",
     "service-worker.js": "/busqueda-codigo-web/service-worker.js",
     "static/css/2.ad8e7604.chunk.css.map": "/busqueda-codigo-web/static/css/2.ad8e7604.chunk.css.map",
     "static/css/main.74b1dc69.chunk.css.map": "/busqueda-codigo-web/static/css/main.74b1dc69.chunk.css.map",
-    "static/js/2.b3610803.chunk.js.LICENSE.txt": "/busqueda-codigo-web/static/js/2.b3610803.chunk.js.LICENSE.txt",
+    "static/js/2.b025cea4.chunk.js.LICENSE.txt": "/busqueda-codigo-web/static/js/2.b025cea4.chunk.js.LICENSE.txt",
     "static/media/App.css": "/busqueda-codigo-web/static/media/Menlo-Regular.9f94dc20.ttf",
     "static/media/search.16e49d9d.svg": "/busqueda-codigo-web/static/media/search.16e49d9d.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.4db7e6e0.js",
     "static/css/2.ad8e7604.chunk.css",
-    "static/js/2.b3610803.chunk.js",
+    "static/js/2.b025cea4.chunk.js",
     "static/css/main.74b1dc69.chunk.css",
-    "static/js/main.2b43fa18.chunk.js"
+    "static/js/main.6409568f.chunk.js"
   ]
 }
